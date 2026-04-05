@@ -37,15 +37,32 @@ int main() {
     fri->next = sat;
     sat->next = sun; /// connect with lat node to fist node  agian 
 
-    struct Node* temp = wed;
-
-    int n = 10;
+    char inputDay[10];
+    int n;
+    printf("Enter Today Day : ");
+    scanf("%s",inputDay);
+    printf("Enter the number of day : ");
+    scanf("%d",&n);
+     struct Node* temp = sun;
+    int find=0;
+    do{
+        if(strcmp(temp->days,inputDay)==0){
+            find=1;
+            break;
+        }
+        temp=temp->next;
+    }while(temp !=sun);
+    if(find==0){
+        printf("INvalid enter day \n");
+        return 0;
+    }
+    
 
     for(int i= 0; i<n;i++) {
         temp =temp->next;
     }
 
-    printf("Today is : %s\n", wed->days);
+    printf("Today is : %s\n",inputDay);
     printf("After %d day : %s\n", n, temp->days);
 
     
